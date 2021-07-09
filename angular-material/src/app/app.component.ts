@@ -39,6 +39,8 @@ export class AppComponent {
         if (response) {
           alert('Deleted');
           this.loadData();
+          this.showAdd = true;
+          this.showUpdate = false;
         }
       });
     }
@@ -47,7 +49,7 @@ export class AppComponent {
   addForm() {
     this.userService.addUser(this.userAdd).subscribe((data: any) => {
       if (data) {
-        alert('Add New User');
+        alert('User was successfully added');
         this.loadData();
         this.userAdd = {};
       }
