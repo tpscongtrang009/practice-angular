@@ -1,0 +1,128 @@
+<h1>User List</h1>
+<table mat-table [dataSource]="users" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>First Name</th>
+    <td mat-cell *matCellDef="let user">{{ user.firstName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef>Last Name</th>
+    <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef>Phone</th>
+    <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let user">
+      <button mat-raised-button color="primary" (click)="editUser(user.id)">
+        Edit
+      </button>
+      <button mat-raised-button color="warn" (click)="deleteUser(user.id)">
+        Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<form *ngIf="showAdd" class="add-form" #f="ngForm" (ngSubmit)="addForm()">
+  <mat-form-field class="invisible example-full-width" appearance="fill">
+    <input matInput name="id" [(ngModel)]="userAdd.id" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input
+      matInput
+      placeholder="Enter First Name"
+      name="firstName"
+      [(ngModel)]="userAdd.firstName"
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input
+      matInput
+      placeholder="Enter Last Name"
+      name="lastName"
+      [(ngModel)]="userAdd.lastName"
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input
+      matInput
+      placeholder="Enter Your Phone"
+      name="phone"
+      [(ngModel)]="userAdd.phone"
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      placeholder="Enter Email"
+      name="email"
+      [(ngModel)]="userAdd.email"
+    />
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Create</button>
+</form>
+
+<form *ngIf="showUpdate" class="add-form" #f="ngForm" (ngSubmit)="updateForm()">
+  <mat-form-field class="invisible example-full-width" appearance="fill">
+    <input matInput name="id" [(ngModel)]="userEdit.id" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input
+      matInput
+      placeholder="Enter First Name"
+      name="firstName"
+      [(ngModel)]="userEdit.firstName"
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input
+      matInput
+      placeholder="Enter Last Name"
+      name="lastName"
+      [(ngModel)]="userEdit.lastName"
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input
+      matInput
+      placeholder="Enter Your Phone"
+      name="phone"
+      [(ngModel)]="userEdit.phone"
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      placeholder="Enter Email"
+      name="email"
+      [(ngModel)]="userEdit.email"
+    />
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>

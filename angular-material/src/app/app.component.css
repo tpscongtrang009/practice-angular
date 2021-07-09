@@ -1,0 +1,29 @@
+table {
+  width: 80%;
+  position: relative;
+  left:10%;
+  
+}
+h1{
+  text-align: center;
+  margin-top:10px;
+}
+.add-form {
+  min-width: 200px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  left:10%;
+  top:5%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.invisible{
+  display: block;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
